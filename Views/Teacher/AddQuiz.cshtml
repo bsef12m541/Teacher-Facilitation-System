@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "AddQuiz";
+    Layout = "~/Views/Shared/TeacherLayout.cshtml";
+}
+@model EADWebTeacherFacilitationSystem.Models.Quiz
+<div class="container">
+    <div class="col-lg-5"></div>
+    <h3 class="col-lg-6">Add Quiz</h3>
+</div>
+<body>
+    <div>
+@using (Html.BeginForm("AddQuestion", "Teacher", FormMethod.Post, new {@class="form-horizontal"}))
+    {
+            <div class="form-group">
+                @Html.LabelFor(u => u.quizID, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => u.quizID, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(u => u.classID, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => u.classID, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(u => u.question, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextAreaFor(u => u.question, new { @class = "form-control" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(u => u.optionA, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => u.optionA, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(u => u.optionB, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => u.optionB, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(u => u.optionC, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => u.optionC, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(u => u.optionD, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => u.optionD, new { @class = "form-control" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(u => u.correctOption, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => u.correctOption, new { @class = "form-control" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-lg-offset-3 col-lg-10">
+                    <input type="submit" value="Add Question" class="btn btn-default" />
+                </div>
+            </div>
+
+    }
+    </div>
+</body>

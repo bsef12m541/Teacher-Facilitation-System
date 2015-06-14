@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/StudentLayout1.cshtml";
+}
+@model EADWebTeacherFacilitationSystem.StudentClassesClass
+
+@using EADWebTeacherFacilitationSystem
+
+<div class="container">
+    <div class="col-lg-5"></div>
+    <h3 class="col-lg-6">Select Class</h3>
+</div>
+<body>
+ <div class="container">
+@using (Html.BeginForm("StartClass", "Student", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    foreach (StudentClassesClass stc in ViewBag.stc)
+        {
+        <div class="col-lg-6">
+                <div class="form-group">
+                    @Html.LabelFor(u => u.ClassCode, new { @class = "control-label col-lg-3" })
+                    <div class="col-lg-4">
+                        @Html.TextBoxFor(u => stc.ClassCode, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+
+            <div class="form-group">
+                @Html.LabelFor(u => stc.ClassName, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u =>stc.ClassName, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(u => stc.TeacherID, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => stc.TeacherID, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(u => stc.TeacherName, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => stc.TeacherName, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-lg-10">
+                @Html.ActionLink("Enter In Class", "StartClass", new { id = stc.ClassCode })
+            </div>
+        </div>
+        
+    </div>
+        }
+}
+     </div>
+</body>
+

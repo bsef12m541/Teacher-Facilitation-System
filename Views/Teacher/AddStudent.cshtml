@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "AddStudent";
+    Layout = "~/Views/Shared/TeacherLayout.cshtml";
+}
+
+<body>
+
+
+    <div class="container">
+        <div class="col-lg-5"></div>
+        <h3 class="col-lg-6">Add New Student</h3>
+    </div>
+
+    <div>
+        <form action="/Teacher/AddNewStudent" class="form-horizontal" role="form">
+
+            <div class="form-group">
+                <label class="control-label col-lg-3" for="name">Name: </label>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control" name="name" placeholder="Enter Name" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-lg-3" for="pwd">Password:</label>
+                <div class="col-lg-4">
+                    <input type="password" class="form-control" name="password" placeholder="Enter Password" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-lg-3" for="pwd">Retype Password:</label>
+                <div class="col-lg-4">
+                    <input type="password" class="form-control" name="password1" placeholder="Enter Password" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-lg-3" for="email">Email:</label>
+                <div class="col-lg-4">
+                    <input type="email" class="form-control" name="email" placeholder="Enter Email" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-lg-3" for="phone">Phone: </label>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control" name="phone" placeholder="Enter Phone" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-lg-3" for="address">Address:</label>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control" name="address" placeholder="Enter Address" />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-lg-offset-3 col-lg-10">
+                    <input type="submit" value="Add Student" class="btn btn-default" />
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+
+</body>

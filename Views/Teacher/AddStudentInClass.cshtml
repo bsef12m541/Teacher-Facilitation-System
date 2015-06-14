@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "AddStudentInClass";
+    Layout = "~/Views/Shared/TeacherLayout.cshtml";
+}
+
+@using EADWebTeacherFacilitationSystem.Models
+<body>
+
+    <div class="container">
+
+        <table border="1"
+               style="background-color:azure">
+            <tr class="alert-success:" style="background-color: gold"><td>ID</td><td>NAME</td><td>ADDRESS</td><td>EMAIL ID</td><td>PHONE NO</td><td>STATE</td><td>Add Student</td></tr>
+            @foreach (User u in Model)
+            {
+                <tr><td>@u.Id</td><td>@u.Name</td><td>@u.Address</td><td>@u.EmailID</td><td>@u.PhoneNo</td><td>@u.State</td><td>@Html.ActionLink("ADD", "AddStudentClass3", new { id = u.Id })</td></tr>
+            }
+        </table>
+
+    </div>
+
+</body>
+

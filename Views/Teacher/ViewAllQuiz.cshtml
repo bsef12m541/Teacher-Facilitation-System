@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "ViewAllQuiz";
+    Layout = "~/Views/Shared/TeacherLayout.cshtml";
+}
+
+@using EADWebTeacherFacilitationSystem.Models
+<body>
+
+    <div class="container">
+
+        <table border="1"
+               style="background-color:azure">
+            <tr class="alert-success:" style="background-color: gold"><td>Quiz ID</td><td>QUESTION</td><td>OPT - A</td><td>OPT - B</td><td>OPT - C</td><td>OPT - D</td><td>Correct Option</td><td>Edit Question</td><td>Delete A Question</td></tr>
+            @foreach (Quiz q in Model)
+            {
+                <tr><td>@q.quizID</td><td>@q.question</td><td>@q.optionA</td><td>@q.optionB</td><td>@q.optionC</td><td>@q.optionD</td><td>@q.correctOption</td><td>@Html.ActionLink("Edit", "EditQuestion", new { id = q.questionID })</td><td>@Html.ActionLink("Delete", "DeleteQuestion", new { id = q.questionID })</td></tr>
+            }
+        </table>
+
+    </div>
+
+</body>

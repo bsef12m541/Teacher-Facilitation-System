@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "ViewAUser";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@model EADWebTeacherFacilitationSystem.Models.User
+<body>
+    <div class="container">
+        @using (Html.BeginForm("ViewSpecificUser", "Admin", FormMethod.Post))
+        {
+
+            @Html.LabelFor(u => u.Id)
+            @Html.TextBoxFor(u => u.Id)
+
+            <input type="submit" value="View Details" />
+        }
+    </div>
+</body>

@@ -1,0 +1,45 @@
+﻿@model EADWebTeacherFacilitationSystem.Models.Quiz
+
+@{
+    ViewBag.Title = "StartQuiz";
+    Layout = "~/Views/Shared/StudentLayout2.cshtml";
+}
+
+<div class="container">
+    <div class="col-lg-3"></div>
+    <h3 class="col-lg-6">Quiz @Model.quizID</h3>
+</div>
+<body>
+    <div>
+
+        <form id="Announce" role="form" action="NextQuestion" method="get" enctype="multipart/form-data" class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(u => u.question, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextAreaFor(u => u.question, new { @class = "form-control"  , @readonly = "readonly"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Correct Answer", new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    <fieldset>
+                        <select class="form-control" name="correctOpt" form="Announce">
+
+                            <option>@Model.optionA</option>
+                            <option>@Model.optionB</option>
+                            <option>@Model.optionC</option>
+                            <option>@Model.optionD</option>
+
+                        </select>
+                        <!-- Change this to a button or input when using this as a form -->
+                        <button type="submit" class="btn btn-lg btn-success btn-block">Sumbit Answer</button>
+                        @Html.ActionLink("Skip This Question", "NextQuestion")
+                    </fieldset>
+                </div>
+            </div>
+    </form>
+
+
+    </div>
+</body>

@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "AsignmentDetail";
+    Layout = "~/Views/Shared/StudentLayout2.cshtml";
+}
+
+@model EADWebTeacherFacilitationSystem.Models.teacherAssignment
+@using EADWebTeacherFacilitationSystem.Models
+
+
+    <div class="container">
+        <div class="col-lg-3"></div>
+        <h3 class="col-lg-6">Assignment Detail</h3>
+        <br /><br />
+        <br /><br />
+    </div>
+
+<body>
+    @{
+        TFSDataBaseEntities tf = new TFSDataBaseEntities();
+        int stuID = (int)Session["userID"];
+        string Status = tf.StudentAssignmnets.Where(x => x.AsignmnetID == Model.AsignmentID && x.StudentID == stuID).Select(x => x.Status).FirstOrDefault();
+        if (Status == null)
+        {
+            Status = "Not Done";
+        }
+        string Upload = tf.StudentAssignmnets.Where(x => x.AsignmnetID == Model.AsignmentID && x.StudentID == stuID).Select(x => x.StudentAttachment).FirstOrDefault();
+        if (Upload == null) 
+        {
+            Upload = "NO";
+        }
+        int teacherID = tf.Classes.Where(x => x.ClassID == Model.classID).Select(x => x.TeacherID).First();
+        string teacherAttachment = Model.teacherAttachmnet;
+     }
+    
+    
+    <div>
+        <form action="/Student/save" class="form-horizontal" role="form" enctype="multipart/form-data" method="post">
+            <div class="form-group">
+                @Html.LabelFor(q => q.AsignmentID, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(q => q.AsignmentID, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(u => u.AssignmnetName, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => u.AssignmnetName, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+            @Html.HiddenFor(x=>x.classID)
+            @Html.HiddenFor(x=>x.teacherAttachmnet)
+
+
+            <div class="form-group">
+                @Html.LabelFor(u => u.AnnouncedDate, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => u.AnnouncedDate, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(u => u.DueDate, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => u.DueDate, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(u => u.AssignmnetNote, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    @Html.TextAreaFor(u => u.AssignmnetNote, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+            </div>
+            @{if (teacherAttachment.Equals("YES"))
+              {
+                  <div class="form-group">
+                @Html.LabelFor(u => u.teacherAttachmnet, new { @class = "control-label col-lg-3" })
+                <div class="col-lg-4">
+                    <a href="/Student/GetFile?asID=@Model.AsignmentID&usID=@teacherID">Attachment</a>
+                </div>
+            </div>
+              }
+              }
+
+            @{if (Upload.Equals("YES"))
+              {
+                <div class="form-group">
+                    @Html.Label( "Student Attachmnet", new { @class = "control-label col-lg-3" })
+                    <div class="col-lg-4">
+                        <a href="/Student/GetFile?asID=@Model.AsignmentID&usID=@Session["userID"]">Attachment</a>
+                    </div>
+                </div>
+              }
+            }
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(u => Status, new { @class = "control-label col-lg-3" })
+                @{if (Status.Equals("DONE")){
+                <div class="col-lg-4">
+                    @Html.TextBoxFor(u => Status, new { @class = "form-control", @style = "background-color:Green", @readonly = "readonly" })
+                </div>
+                }
+                else
+                  {
+                      <div class="col-lg-4">
+                    @Html.TextBoxFor(u => Status, new { @class = "form-control", @style = "background-color:Red", @readonly = "readonly" })
+                </div>
+                  }
+                  }
+            </div>
+            @{if (!Status.Equals("DONE"))
+            { 
+            <div class="form-group">
+                @Html.LabelFor(u => Upload, new { @class = "control-label col-lg-3", @readonly ="readonly"  }) 
+                <div class="col-lg-4">
+                    <input type="file" name="file" class="form-control" />
+                </div>
+            </div>
+            
+
+
+
+            <div class="form-group">
+                <div class="col-lg-offset-3 col-lg-10">
+                    <input type="submit" value="Mark As Done" class="btn btn-default" />
+                </div>
+            </div>
+            }
+            }
+        </form>
+    </div>
+
+
+
+</body>

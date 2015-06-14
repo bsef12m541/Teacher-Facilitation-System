@@ -1,0 +1,72 @@
+﻿<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/scripts/bootstrap.js"></script>
+    @{
+        if (Session.Count == 0)
+        {
+            Response.Redirect("~/TeacherSystem/Index");
+        }
+        else if (!Session["type"].Equals("STUDENT"))
+        { Response.Redirect("~/TeacherSystem/Index"); }
+    }
+</head>
+
+<body>
+    <div class="navbar-wrapper">
+
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Teacher Facilitation System</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse right">
+                    <button class="small">Student Mode</button>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/Student/Index">Home</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="/Student/EditInfo"> Edit Info </a></li>
+                        <li><a class="right" href="/TeacherSystem">Sign Out</a></li>
+                    </ul>
+
+                    <ul class="nav nav-pills" role="tablist">
+                        <li class="pull-right text-success"> Welcome @Session["name"]</li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="col-md-3 container">
+        <ul>
+            <li><a href="/Student/EditInfo"> Edit Info </a></li>
+            <li><a href="/Student/ViewAllAnnouncement"> Announcement</a></li>
+            <li><a href="/Student/ViewAllAssignment"> Assignment</a></li>
+            <li><a href="/Student/AttemptQuiz"> Attempt Quiz</a></li>
+            <li><a href="/Student/ViewResult"> Result</a></li>
+        </ul>
+    </div>
+
+    <div class="col-md-9 container">
+        <div class="col-md-8">
+            <!--<h4> Class: ViewBag.clas.ClassName</h4>-->
+        </div>
+        <div class="col-md-4">
+            <!--<h4> Instructor: ViewBag.clas.TeacherName</h4>-->
+        </div>
+        @RenderBody()
+    </div>
+
+</body>

@@ -1,0 +1,37 @@
+﻿@model EADWebTeacherFacilitationSystem.Models.User
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    ViewBag.Title = "EditUser";
+}
+
+<body>
+    <div>
+        @using (Html.BeginForm("Edit", "Admin", FormMethod.Post))
+        {
+            @Html.HiddenFor(u => u.Id)
+            
+            @Html.LabelFor(u => u.Name)
+            @Html.EditorFor(u => u.Name)
+            
+            @Html.LabelFor(u => u.EmailID)
+            @Html.EditorFor(u => u.EmailID)
+            
+            @Html.LabelFor(u => u.Address)
+            @Html.EditorFor(u => u.Address)
+            
+            @Html.LabelFor(u => u.Designation)
+            @Html.EditorFor(u => u.Designation)
+            
+            @Html.LabelFor(u => u.Password)
+            @Html.EditorFor(u => u.Password)
+            
+            @Html.LabelFor(u => u.PhoneNo)
+            @Html.EditorFor(u => u.PhoneNo)
+
+            @Html.LabelFor(m => m.State)
+            @Html.EditorFor(m => m.State)
+            <input type="submit" value="Save" />
+        }
+    </div>
+</body>

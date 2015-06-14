@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "ViewAllAnnouncement";
+    Layout = "~/Views/Shared/TeacherLayout.cshtml";
+}
+
+
+@using EADWebTeacherFacilitationSystem.Models
+<body>
+
+    <div class="container">
+
+        <table border="1"
+               style="background-color:azure">
+            <tr class="alert-success:" style="background-color: gold"><td>Announcement ID</td><td>Announcement Date</td><td>Teacher ID</td><td>Class ID</td><td>Announcement</td><td>Edit</td><td>Delete</td></tr>
+            @foreach (Announcement a in Model)
+            {
+                <tr><td>@a.AnnouncementID</td><td>@a.date</td><td>@a.teacherID</td><td>@a.ClassID</td><td>@a.Announcemnet</td><td>@Html.ActionLink("Edit", "EditAnnouncement", new { id = a.AnnouncementID })</td><td>@Html.ActionLink("Delete", "DeleteAnnouncement", new { id = a.AnnouncementID })</td></tr>
+            }
+        </table>
+
+    </div>
+
+</body>

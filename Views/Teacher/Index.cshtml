@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "TeacherIndex";
+    Layout = "~/Views/Shared/TeacherLayout.cshtml";
+}
+
+<head>
+    <title></title>
+    <link href="~/content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/script/bootstrap.js"></script>
+    <link href="~/content/carousel.css" rel="stylesheet">
+    
+</head>
+
+<!-- NAVBAR
+================================================== -->
+<body>
+    
+
+    <div>
+        <div class="container">
+            <div class="list-group">
+                <form action="/Teacher/AddStudent">
+                    <input type="submit" value=" Add A Student " class=" btn-primary col-lg-4" />
+                </form>
+
+                <form action="/Admin/Block">
+                    <input type="submit" value=" Block A Student " class=" btn-success col-lg-4" />
+                </form>
+
+                <form action="/Admin/ViewAStudent">
+                    <input type="submit" value=" View Specific User " class=" btn-primary col-lg-4" />
+                </form>
+
+                <form action="/Teacher/ViewAllStudent">
+                    <input type="submit" value=" View All Student Detail " class=" btn-primary col-lg-4" />
+                </form>
+
+                <form action="/Teacher/ViewAllAnnouncement">
+                    <input type="submit" value=" View All Announcement " class=" btn-success col-lg-4" />
+                </form>
+
+                <form action="/Admin/Activate">
+                    <input type="submit" value=" Activate A Student " class=" btn-primary col-lg-4" />
+                </form>
+
+                <form action="/Teacher/AddQuiz">
+                    <input type="submit" value=" Add New Quiz " class=" btn-primary col-lg-4" />
+                </form>
+
+                <form action="/Teacher/ViewAllQuiz">
+                    <input type="submit" value=" View All Question " class=" btn-success col-lg-4" />
+                </form>
+
+                <form action="/Teacher/PostAnnouncement">
+                    <input type="submit" value=" Add New Announcement " class=" btn-primary col-lg-4" />
+                </form>
+
+                <form action="/Teacher/AddNewClass">
+                    <input type="submit" value=" Add New Class " class=" btn-primary col-lg-4" />
+                </form>
+
+                <form action="/Teacher/AddStudentToClass">
+                    <input type="submit" value=" Add Students in Class " class=" btn-success col-lg-4" />
+                </form>
+
+                <form action="/Teacher/AddAssignment">
+                    <input type="submit" value="Add Assignment" class=" btn-primary col-lg-4" />
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+

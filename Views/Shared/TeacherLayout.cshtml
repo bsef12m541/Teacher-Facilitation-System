@@ -49,12 +49,33 @@
 
        
     </div>
-    <div class="row container">
-        <div class="col-md-12">
-            @RenderBody()
+
+    <div class="col-md-3 container">
+        <ul>
+            <li><a href="/Teacher/AddStudent"> Add A New Student </a></li>
+            <li><a href="/Teacher/ActivateStudent"> Activate A Student</a></li>
+            <li><a href="#"> Block A Student</a></li>
+            <li><a href="/Teacher/AddNewClass"> Add A New Class </a></li>
+            <li><a href="/Teacher/AddStudentToClass"> Add Students In Class</a></li>
+            <li><a href="/Teacher/AddQuiz"> Post A Question</a></li>
+            <li><a href="/Teacher/ViewAllQuiz"> View All Question </a></li>
+            <li><a href="/Teacher/PostAnnouncement"> Post An Announcement</a></li>
+            <li><a href="/Teacher/ViewAllAnnouncement"> View All Announcemnet</a></li>
+            <li><a href="/Teacher/AddAssignment"> Post An Assignment</a></li>
+            <li><a href="#"> View All Assignment</a></li>
+        </ul>
+    </div>
+
+
+    <div class="col-md-9 container">
+        <div class="col-md-8">
+            <!--<h4> Class: ViewBag.clas.ClassName</h4>-->
         </div>
+        <div class="col-md-4">
+            <!--<h4> Instructor: ViewBag.clas.TeacherName</h4>-->
         </div>
-       
+        @RenderBody()
+    </div>
 
 
 </body>

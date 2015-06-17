@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "ActivateStudent2";
+    Layout = "~/Views/Shared/TeacherLayout.cshtml";
+}
+
+<h2>ActivateStudent2</h2>
+
+@using EADWebTeacherFacilitationSystem.Models
+<body>
+
+    <div class="container">
+
+        <table border="1"
+               style="background-color:azure">
+            <tr class="alert-success:" style="background-color: gold"><td>Student ID</td><td>Student Name</td><td>Activate</td></tr>
+            @foreach (User u in Model)
+            {
+                <tr><td>@u.Id</td><td>@u.Name</td><td>@Html.ActionLink("Activate", "ActivateStudnet3", new { id = u.Id })</td></tr>
+            }
+        </table>
+
+    </div>
+
+</body>

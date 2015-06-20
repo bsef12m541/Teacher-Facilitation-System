@@ -1,8 +1,7 @@
 ﻿@{
-    ViewBag.Title = "ActivateStudent2";
+    ViewBag.Title = "BlockStudent2";
     Layout = "~/Views/Shared/TeacherLayout.cshtml";
 }
-
 
 @using EADWebTeacherFacilitationSystem.Models
 <body>
@@ -11,10 +10,10 @@
 
         <table border="1"
                style="background-color:azure">
-            <tr class="alert-success:" style="background-color: gold"><td>Student ID</td><td>Student Name</td><td>Activate</td></tr>
+            <tr class="alert-success:" style="background-color: gold"><td>Student ID</td><td>Student Name</td><td>Block</td></tr>
             @foreach (User u in Model)
             {
-                <tr><td>@u.Id</td><td>@u.Name</td><td>@Html.ActionLink("Activate", "ActivateStudnet3", new { id = u.Id })</td></tr>
+                <tr><td>@u.Id</td><td>@u.Name</td><td>@Html.ActionLink("BLOCK", "BlockStudent3", new { id = u.Id })</td></tr>
             }
         </table>
 
